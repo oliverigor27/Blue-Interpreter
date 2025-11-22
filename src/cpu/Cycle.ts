@@ -1,4 +1,4 @@
-import { processTick } from "./ProcessTick";
+import { processTick } from "./CPU";
 
 let clock_pulse = 1;
 
