@@ -1,3 +1,4 @@
+import { do_NOP } from "./Nop";
 import { registers, RAM } from "./Registers";
 
 export enum State {
@@ -6,6 +7,11 @@ export enum State {
 }
 
 export let STATE = State.FETCH;
+
+export function GetInstruction()
+{
+    return (registers.IR & 0xF000) >> 12;
+}
 
 export function processTick(tick: number)
 {
@@ -36,5 +42,10 @@ export function processTick(tick: number)
         case 7:
         case 8:
             break;
+    }
+
+    const INS = GetInstruction();
+    if (INS === 15) {
+        do_NOP(tick);
     }
 }
