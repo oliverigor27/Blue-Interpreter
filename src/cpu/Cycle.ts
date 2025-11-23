@@ -2,7 +2,7 @@ import { processTick } from "./CPU";
 
 let clock_pulse = 1;
 
-function emulateCycle()
+export function EmulateCycle()
 {
     while(clock_pulse < 9)
     {
